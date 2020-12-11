@@ -55,11 +55,14 @@ public class OperatingSystem {
         return osSoftware;
     }
 
-    public void installSoftware(Software osSoftware){
-        this.osSoftware.add(osSoftware);
+    public void installSoftware(Software software, ComputerClass computer){
+        computer.setHardDisk(computer.getHardDisk() - software.getSoftwareSpaceRequirement());
+        computer.setRamMemory(computer.getRamMemory() - software.getSoftwareRamMemoryRequirement());
+        this.osSoftware.add(software);
     }
-
-    public void uninstallSoftware(Software osSoftware){
+    public void uninstallSoftware(Software osSoftware, ComputerClass computer){
+        computer.setHardDisk(computer.getHardDisk() + osSoftware.getSoftwareSpaceRequirement());
+        computer.setRamMemory(computer.getRamMemory() + osSoftware.getSoftwareRamMemoryRequirement());
         this.osSoftware.remove(osSoftware);
     }
 

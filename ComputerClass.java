@@ -2,7 +2,7 @@ package EjercicioOrdenador;/*
 Hecho dia jue. 03/12/2020
 Creado por: Juanma
 Paquete: EjercicioOrdenador
-Descripcion:
+Descripcion: Hacer un ordenador virtual instalando S.O. y software jugando con las memorias RAM y de disco.
 */
 
 import java.util.*;
@@ -58,8 +58,8 @@ public class ComputerClass {
     }
 
     public void computerFormat(){
-        this.operatingSystem = operatingSystem;
         this.hardDisk += operatingSystem.getOsSpaceRequirement();
         this.ramMemory += operatingSystem.getOsRamMemoryRequirement();
+        this.operatingSystem = null;
     }
 }
