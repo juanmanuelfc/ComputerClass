@@ -56,14 +56,25 @@ public class OperatingSystem {
     }
 
     public void installSoftware(Software software, ComputerClass computer){
-        computer.setHardDisk(computer.getHardDisk() - software.getSoftwareSpaceRequirement());
-        computer.setRamMemory(computer.getRamMemory() - software.getSoftwareRamMemoryRequirement());
-        this.osSoftware.add(software);
+        if (computer.getHardDisk() >= software.getSoftwareSpaceRequirement() && computer.getRamMemory() >= software.getSoftwareRamMemoryRequirement()){
+            computer.setHardDisk(computer.getHardDisk() - software.getSoftwareSpaceRequirement());
+            computer.setRamMemory(computer.getRamMemory() - software.getSoftwareRamMemoryRequirement());
+            this.osSoftware.add(software);
+            //System.out.println("Software instalado.");
+        }
+        else {
+            System.out.println("No tienes espacio.");
+        }
     }
-    public void uninstallSoftware(Software osSoftware, ComputerClass computer){
-        computer.setHardDisk(computer.getHardDisk() + osSoftware.getSoftwareSpaceRequirement());
-        computer.setRamMemory(computer.getRamMemory() + osSoftware.getSoftwareRamMemoryRequirement());
+    public void uninstallSoftware(Software software, ComputerClass computer){
+        if (computer.getHardDisk() >= software.getSoftwareSpaceRequirement() && computer.getRamMemory() >= software.getSoftwareRamMemoryRequirement()){
+        computer.setHardDisk(computer.getHardDisk() + software.getSoftwareSpaceRequirement());
+        computer.setRamMemory(computer.getRamMemory() + software.getSoftwareRamMemoryRequirement());
         this.osSoftware.remove(osSoftware);
+        }
+        else {
+            System.out.println("No tienes espacio.");
+        }
     }
 
     public String getOsName(){

@@ -9,7 +9,7 @@ public class TestOrdenador {
     public static void main(String[] args) {
 
         //Creamos el pc
-        ComputerClass computer1 = new ComputerClass("c1", 4, 100);
+        ComputerClass computer1 = new ComputerClass("c1", 8, 100);
 
         //Creamos el sistema operativo
         OperatingSystem operatingSystem1 = new OperatingSystem("os1", "1.0", "64", true, 20, 2);
@@ -18,7 +18,7 @@ public class TestOrdenador {
         Software software1 = new Software("s1", "1.0", 2, 1);
 
         //Creamos el segundo programa
-        Software software2 = new Software("s2", "2.0", 1, 6);
+        Software software2 = new Software("s2", "2.0", 1, 1);
 
         //Pedimos que nos de el espacio en disco que tenemos disponible
         System.out.println("Tenemos " + computer1.getHardDisk() + "GB de disco duro disponible.");
