@@ -34,11 +34,15 @@ public class ComputerClass {
     }
 
     public void operatingSystemInstalled(OperatingSystem operatingSystem){
-        if (operatingSystem != null){
+        if (operatingSystem != null && operatingSystem.getOsSpaceRequirement() < this.hardDisk && operatingSystem.getOsRamMemoryRequirement() < this.ramMemory){
             this.hardDisk -= operatingSystem.getOsSpaceRequirement();
             this.ramMemory -= operatingSystem.getOsRamMemoryRequirement();
             this.operatingSystem = operatingSystem;
         }
+        else {
+            System.out.println("No tienes espacio suficiente");
+        }
+
     }
 
     public OperatingSystem getOperatingSystem() {
